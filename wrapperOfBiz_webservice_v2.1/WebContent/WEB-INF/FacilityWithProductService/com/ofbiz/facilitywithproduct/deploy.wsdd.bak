@@ -1,0 +1,50 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from FacilityWithProductService WSDL service -->
+
+  <service name="FacilityWithProduct" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://facilitywithproduct.ofbiz.com"/>
+      <parameter name="wsdlServiceElement" value="FacilityWithProductService"/>
+      <parameter name="schemaQualified" value="http://facilitywithproduct.ofbiz.com"/>
+      <parameter name="wsdlServicePort" value="FacilityWithProduct"/>
+      <parameter name="className" value="com.ofbiz.facilitywithproduct.FacilityWithProductSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="FacilityWithProduct"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getName" qname="operNS:getName" xmlns:operNS="http://facilitywithproduct.ofbiz.com" returnQName="retNS:getNameReturn" xmlns:retNS="http://facilitywithproduct.ofbiz.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="helloWorld" qname="operNS:helloWorld" xmlns:operNS="http://facilitywithproduct.ofbiz.com" returnQName="retNS:helloWorldReturn" xmlns:retNS="http://facilitywithproduct.ofbiz.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://facilitywithproduct.ofbiz.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="associateFacilityWithProduct" qname="operNS:associateFacilityWithProduct" xmlns:operNS="http://facilitywithproduct.ofbiz.com" returnQName="retNS:associateFacilityWithProductReturn" xmlns:retNS="http://facilitywithproduct.ofbiz.com" returnType="rtns:FacilityWithProductOutput" xmlns:rtns="http://facilitywithproduct.ofbiz.com" soapAction="" >
+        <parameter qname="pns:associateFacilityWithProductInput" xmlns:pns="http://facilitywithproduct.ofbiz.com" type="tns:FacilityWithProductInput" xmlns:tns="http://facilitywithproduct.ofbiz.com"/>
+      </operation>
+      <parameter name="allowedMethods" value="getName associateFacilityWithProduct helloWorld"/>
+
+      <typeMapping
+        xmlns:ns="http://facilitywithproduct.ofbiz.com"
+        qname="ns:FacilityWithProductInput"
+        type="java:com.ofbiz.facilitywithproduct.FacilityWithProductInput"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://facilitywithproduct.ofbiz.com"
+        qname="ns:FacilityWithProductOutput"
+        type="java:com.ofbiz.facilitywithproduct.FacilityWithProductOutput"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

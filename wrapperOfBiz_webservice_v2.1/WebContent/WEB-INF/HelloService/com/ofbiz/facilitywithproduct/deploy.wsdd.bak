@@ -1,0 +1,28 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from HelloService WSDL service -->
+
+  <service name="Hello" provider="java:RPC" style="document" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://facilitywithproduct.ofbiz.com"/>
+      <parameter name="wsdlServiceElement" value="HelloService"/>
+      <parameter name="schemaQualified" value="http://facilitywithproduct.ofbiz.com"/>
+      <parameter name="wsdlServicePort" value="Hello"/>
+      <parameter name="className" value="com.ofbiz.facilitywithproduct.HelloSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Hello"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getHelloWorld" qname="getHelloWorld" returnQName="retNS:getHelloWorldReturn" xmlns:retNS="http://facilitywithproduct.ofbiz.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="getHelloWorld"/>
+
+  </service>
+</deployment>
