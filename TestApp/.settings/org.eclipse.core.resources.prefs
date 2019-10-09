@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//src/com/ofbiz/createproduct/CreateProduct.java=UTF-8
+encoding//src/com/ofbiz/createproduct/CreateProductLocator.java=UTF-8
+encoding//src/com/ofbiz/createproduct/CreateProductPortType.java=UTF-8
+encoding//src/com/ofbiz/createproduct/CreateProductSoap11BindingStub.java=UTF-8
+encoding//src/com/ofbiz/createproduct/xsd/CreateProductInput.java=UTF-8
+encoding//src/com/ofbiz/createproduct/xsd/CreateProductOutput.java=UTF-8
+encoding//src/com/ofbiz/facilitywithproduct/FacilityWithProduct.java=UTF-8
+encoding//src/com/ofbiz/facilitywithproduct/FacilityWithProductLocator.java=UTF-8
+encoding//src/com/ofbiz/facilitywithproduct/FacilityWithProductPortType.java=UTF-8
+encoding//src/com/ofbiz/facilitywithproduct/FacilityWithProductSoap11BindingStub.java=UTF-8
+encoding//src/com/ofbiz/facilitywithproduct/xsd/FacilityWithProductInput.java=UTF-8
+encoding//src/com/ofbiz/facilitywithproduct/xsd/FacilityWithProductOutput.java=UTF-8
