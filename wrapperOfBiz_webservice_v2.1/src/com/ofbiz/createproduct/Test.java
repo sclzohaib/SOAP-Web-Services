@@ -3,6 +3,7 @@ package com.ofbiz.createproduct;
 import com.ofbiz.facilitywithproduct.FacilityWithProduct;
 import com.ofbiz.facilitywithproduct.FacilityWithProductInput;
 import com.ofbiz.facilitywithproduct.FacilityWithProductOutput;
+import com.ofbiz.supplierwithproduct.GetSupplierWithProduct;
 import com.ofbiz.supplierwithproduct.SupplierWithProduct;
 import com.ofbiz.supplierwithproduct.SupplierWithProductInput;
 import com.ofbiz.supplierwithproduct.SupplierWithProductOutput;
@@ -13,6 +14,7 @@ public class Test {
 		// TODO Auto-generated method stub
 		CreateProduct createProduct = new CreateProduct();
 		FacilityWithProduct facilityWithProduct = new FacilityWithProduct();
+		GetSupplierWithProduct getSupplierWithProduct = new GetSupplierWithProduct();
 //		CreateProductInput createProductInput = new CreateProductInput();
 //		createProductInput.brandName = "ALOVERA";
 //		createProductInput.productTypeId = "HERBAL";
@@ -47,12 +49,18 @@ public class Test {
 //		});
 		
 		//Get Product with Facility Verification
-		facilityWithProduct.getFacilityWithProduct().forEach(n ->{
+//		facilityWithProduct.getFacilityWithProduct().forEach(n ->{
+//			System.out.println(n.getProductName());
+//			System.out.println(n.getReorderQuantity());
+//			System.out.println(n.getDaysToShip());
+//			System.out.println(n.getInventoryCount());
+//			System.out.println(n.getMinimumStock());
+//		});
+//		
+		//Get Product with Supplier Verification
+		
+		getSupplierWithProduct.getSupplierWithProduct().forEach(n->{
 			System.out.println(n.getProductName());
-			System.out.println(n.getReorderQuantity());
-			System.out.println(n.getDaysToShip());
-			System.out.println(n.getInventoryCount());
-			System.out.println(n.getMinimumStock());
 		});
 	
 	}
