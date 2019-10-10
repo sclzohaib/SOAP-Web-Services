@@ -44,22 +44,16 @@ public class FacilityWithProductPortTypeProxy implements com.ofbiz.facilitywithp
     return facilityWithProductPortType;
   }
   
-  public java.lang.String getName() throws java.rmi.RemoteException{
+  public com.ofbiz.facilitywithproduct.xsd.FacilityWithProductInput[] getFacilityWithProduct() throws java.rmi.RemoteException{
     if (facilityWithProductPortType == null)
       _initFacilityWithProductPortTypeProxy();
-    return facilityWithProductPortType.getName();
+    return facilityWithProductPortType.getFacilityWithProduct();
   }
   
   public com.ofbiz.facilitywithproduct.xsd.FacilityWithProductOutput associateFacilityWithProduct(com.ofbiz.facilitywithproduct.xsd.FacilityWithProductInput associateFacilityWithProductInput) throws java.rmi.RemoteException{
     if (facilityWithProductPortType == null)
       _initFacilityWithProductPortTypeProxy();
     return facilityWithProductPortType.associateFacilityWithProduct(associateFacilityWithProductInput);
-  }
-  
-  public java.lang.String helloWorld(java.lang.String name) throws java.rmi.RemoteException{
-    if (facilityWithProductPortType == null)
-      _initFacilityWithProductPortTypeProxy();
-    return facilityWithProductPortType.helloWorld(name);
   }
   
   

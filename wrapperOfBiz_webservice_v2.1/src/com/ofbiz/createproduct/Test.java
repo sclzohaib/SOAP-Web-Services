@@ -12,6 +12,7 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		CreateProduct createProduct = new CreateProduct();
+		FacilityWithProduct facilityWithProduct = new FacilityWithProduct();
 //		CreateProductInput createProductInput = new CreateProductInput();
 //		createProductInput.brandName = "ALOVERA";
 //		createProductInput.productTypeId = "HERBAL";
@@ -40,9 +41,18 @@ public class Test {
 //		
 //		System.out.println("Facility creaed = " + facilityWithProductOutput.facilityId);
 		
+		//Get Product Verification
+//		createProduct.getProduct().forEach(n -> {
+//		System.out.println(n.getProductName());
+//		});
 		
-		createProduct.getProduct().forEach(n -> {
-		System.out.println(n.getProductName());
+		//Get Product with Facility Verification
+		facilityWithProduct.getFacilityWithProduct().forEach(n ->{
+			System.out.println(n.getProductName());
+			System.out.println(n.getReorderQuantity());
+			System.out.println(n.getDaysToShip());
+			System.out.println(n.getInventoryCount());
+			System.out.println(n.getMinimumStock());
 		});
 	
 	}
