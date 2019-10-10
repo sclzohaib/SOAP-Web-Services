@@ -6,16 +6,57 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.ofbiz.connection.ConnectionFactory;
+import com.ofbiz.createproduct.CreateProductInput;
 
 public class FacilityWithProduct {
 	private static final String INSERT = "INSERT INTO PRODUCT_FACILITY (PRODUCT_ID, FACILITY_ID, MINIMUM_STOCK, REORDER_QUANTITY, DAYS_TO_SHIP, LAST_INVENTORY_COUNT, LAST_UPDATED_STAMP, LAST_UPDATED_TX_STAMP, CREATED_STAMP, CREATED_TX_STAMP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String GET = "select p.PRODUCT_NAME, pf.* from product_facility pf join product p on pf.PRODUCT_ID = p.PRODUCT_ID;";
 	
+	public List<FacilityWithProductInput> getFacilityWithProduct(){
+		PreparedStatement preparedStatement = null;
+		Connection connection = null;
+		ConnectionFactory connectionFactory = new ConnectionFactory();
+		ResultSet rs = null;
+	
+		List<FacilityWithProductInput> getFacilityWithProduct = new ArrayList<>();
+		try {
+			connection = connectionFactory.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(GET);
+			rs = preparedStatement.executeQuery();
+			while(rs.next()) {
+				FacilityWithProductInput createFacilityWithProductInput = new FacilityWithProductInput();
+				createFacilityWithProductInput.setProductName(rs.getString("PRODUCT_NAME"));
+				createFacilityWithProductInput.setMinimumStock(rs.getDouble("MINIMUM_STOCK"));
+				createFacilityWithProductInput.setInventoryCount(rs.getDouble("LAST_INVENTORY_COUNT"));
+				createFacilityWithProductInput.setReorderQuantity(rs.getDouble("REORDER_QUANTITY"));
+				createFacilityWithProductInput.setDaysToShip(rs.getDouble("DAYS_TO_SHIP"));
+				
+				
+	//System.out.println(createProductInput.getProductName());
+				getFacilityWithProduct.add(createFacilityWithProductInput);
+			
+			}
+		
+		}
+		catch(Exception e) {
+			
+		}
+	finally {
+		connectionFactory.close(connection);
+		connectionFactory.close(preparedStatement);
+	}
+		
+		return getFacilityWithProduct;
+	}
 	public FacilityWithProductOutput associateFacilityWithProduct(FacilityWithProductInput associateFacilityWithProductInput) {
 		PreparedStatement preparedStatement = null;
 		Connection connection = null;

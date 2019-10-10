@@ -6,12 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.ofbiz.connection.ConnectionFactory;
+import com.ofbiz.facilitywithproduct.FacilityWithProductInput;
 
 public class SupplierWithProduct {
 private static final String INSERT = "INSERT INTO SUPPLIER_PRODUCT (PRODUCT_ID, PARTY_ID, AVAILABLE_FROM_DATE, AVAILABLE_THRU_DATE, SUPPLIER_PREF_ORDER_ID, "
@@ -19,7 +22,62 @@ private static final String INSERT = "INSERT INTO SUPPLIER_PRODUCT (PRODUCT_ID, 
 		+ "AGREEMENT_ITEM_SEQ_ID, LAST_PRICE, SHIPPING_PRICE, CURRENCY_UOM_ID, SUPPLIER_PRODUCT_NAME, SUPPLIER_PRODUCT_ID, CAN_DROP_SHIP, COMMENTS, LAST_UPDATED_STAMP,"
 		+ " LAST_UPDATED_TX_STAMP, CREATED_STAMP, CREATED_TX_STAMP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
-	public SupplierWithProductOutput associateSupplierWithProduct(SupplierWithProductInput associateSupplierWithProductInput) {
+
+private static final String GET = "select p.product_name, sp.* from supplier_product sp join product p on sp.product_id = p.product_id;";
+
+public List<SupplierWithProductInput> getSupplierWithProduct(){
+	PreparedStatement preparedStatement = null;
+	Connection connection = null;
+	ConnectionFactory connectionFactory = new ConnectionFactory();
+	ResultSet rs = null;
+
+	List<SupplierWithProductInput> getSupplierWithProduct = new ArrayList<>();
+	try {
+		connection = connectionFactory.getConnection();
+		connection.setAutoCommit(false);
+		preparedStatement = connection.prepareStatement(GET);
+		rs = preparedStatement.executeQuery();
+		while(rs.next()) {
+			SupplierWithProductInput createSupplierWithProductInput = new SupplierWithProductInput();
+			createSupplierWithProductInput.setProductName(rs.getString("PRODUCT_NAME"));
+			createSupplierWithProductInput.setAvailableFromDate(rs.getDate("AVAILABLE_FROM_DATE"));
+			createSupplierWithProductInput.setAvailableThruDate(rs.getDate("AVAILABLE_THRU_DATE"));
+			createSupplierWithProductInput.setSupplierPerfOrderId(rs.getString("SUPPLIER_PREF_ORDER_ID"));
+			createSupplierWithProductInput.setSupplierRatingTypeId(rs.getString("SUPPLIER_RATING_TYPE_ID"));
+			createSupplierWithProductInput.setStandardLeadTimeDays(rs.getDouble("STANDARD_LEAD_TIME_DAYS"));
+			createSupplierWithProductInput.setMinimumOrderQuantity(rs.getDouble("MINIMUM_ORDER_QUANTITY"));
+			createSupplierWithProductInput.setOrderQtyIncrements(rs.getDouble("ORDER_QTY_INCREMENTS"));
+			createSupplierWithProductInput.setUnitsIncluded(rs.getString("UNITS_INCLUDED"));
+			createSupplierWithProductInput.setQuantityUomId(rs.getString("QUANTITY_UOM_ID"));
+			createSupplierWithProductInput.setAgreementId(rs.getString("AGREEMENT_ID"));
+			createSupplierWithProductInput.setAgreementItemSeqId(rs.getString("AGREEMENT_ITEM_SEQ_ID"));
+			createSupplierWithProductInput.setLastPrice(rs.getDouble("LAST_PRICE"));
+			createSupplierWithProductInput.setShippingPrice(rs.getDouble("SHIPPING_PRICE"));
+			createSupplierWithProductInput.setCurrencyUomId(rs.getString("CURRENCY_UOM_ID"));
+			createSupplierWithProductInput.setSupplierProductName(rs.getString("SUPPLIER_PRODUCT_NAME"));
+			createSupplierWithProductInput.setSupplierProductId(rs.getString("SUPPLIER_PRODUCT_ID"));
+			createSupplierWithProductInput.setComments(rs.getString("COMMENTS"));
+			createSupplierWithProductInput.setCanDropShip(rs.getBoolean("CAN_DROP_SHIP"));			
+			
+//System.out.println(createProductInput.getProductName());
+			getSupplierWithProduct.add(createSupplierWithProductInput);
+		
+		}
+	
+	}
+	catch(Exception e) {
+		
+	}
+finally {
+	connectionFactory.close(connection);
+	connectionFactory.close(preparedStatement);
+}
+	
+	return getSupplierWithProduct;
+}
+
+
+public SupplierWithProductOutput associateSupplierWithProduct(SupplierWithProductInput associateSupplierWithProductInput) {
 		PreparedStatement preparedStatement = null;
 		Connection connection = null;
 		ConnectionFactory connectionFactory = new ConnectionFactory();

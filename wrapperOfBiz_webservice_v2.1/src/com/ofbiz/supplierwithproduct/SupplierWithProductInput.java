@@ -125,9 +125,10 @@ public class SupplierWithProductInput {
 	public void setSupplierProductId(String supplierProductId) {
 		this.supplierProductId = supplierProductId;
 	}
-	public boolean isCanDropShip() {
+	public boolean getCanDropShip() {
 		return canDropShip;
 	}
+	
 	public void setCanDropShip(boolean canDropShip) {
 		this.canDropShip = canDropShip;
 	}
