@@ -41,7 +41,14 @@ public class CreateProduct {
 			rs = preparedStatement.executeQuery();
 			while(rs.next()) {
 				CreateProductInput createProductInput = new CreateProductInput();
+				createProductInput.setProductTypeId(rs.getString("PRODUCT_TYPE_ID"));
 				createProductInput.setProductName(rs.getString("PRODUCT_NAME"));
+				createProductInput.setReleaseDate(rs.getDate("RELEASE_DATE"));
+				createProductInput.setInternalName(rs.getString("INTERNAL_NAME"));
+				createProductInput.setBrandName(rs.getString("BRAND_NAME"));
+				createProductInput.setRequireAmount(rs.getDouble("REQUIRE_AMOUNT"));
+				createProductInput.setChargeShipping(rs.getDouble("CHARGE_SHIPPING"));
+				createProductInput.setCreatedDate(rs.getDate("CREATED_DATE"));
 	//System.out.println(createProductInput.getProductName());
 				getProduct.add(createProductInput);
 			

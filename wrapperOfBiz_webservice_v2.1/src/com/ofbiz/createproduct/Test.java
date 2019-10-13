@@ -46,6 +46,8 @@ public class Test {
 		//Get Product Verification
 //		createProduct.getProduct().forEach(n -> {
 //		System.out.println(n.getProductName());
+//		System.out.println(n.getBrandName());
+//		System.out.println(n.getCreatedDate());
 //		});
 		
 		//Get Product with Facility Verification
@@ -59,9 +61,9 @@ public class Test {
 //		
 		//Get Product with Supplier Verification
 		
-		getSupplierWithProduct.getSupplierWithProduct().forEach(n->{
-			System.out.println(n.getProductName());
-		});
+//		getSupplierWithProduct.getSupplierWithProduct().forEach(n->{
+//			System.out.println(n.getProductName());
+//		});
 	
 	}
 

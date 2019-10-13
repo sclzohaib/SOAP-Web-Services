@@ -23,33 +23,20 @@ padding-top:0;
 padding-bottom:10px;
 
 }
-.container{
-position: absolute;
 
-}
 h2{
 text-align: center;
 font-weight: bold;
 padding:2%;
 
 }
-table{
-margin-left: 5%;
-border: 1px solid  ;
-border-color: #000000;
-width:100%;
-border-collapse: collapse;
-border-spacing: 5px;
 
-}
 th ,td{
  padding: 8px;
   text-align: center;
   border-bottom: 1px solid #ddd;
 }
-tr{
-tr:hover {background-color:#f5f5f5;}
-}
+
 </style>
 
 <title>Products Facility</title>
@@ -59,9 +46,10 @@ tr:hover {background-color:#f5f5f5;}
 <body>
 <h2>Products With Facility</h2>
 
-<div class="container">
+<div class="table-responsive">
           
   <table class="table table-striped table table-hover table table-bordered">
+  <thead class="thead-dark">
   <tr>
     <th>Product Name</th>
     <th>Minimum Stock</th>
@@ -70,7 +58,8 @@ tr:hover {background-color:#f5f5f5;}
     <th>Inventory Count</th>
     
   </tr>
-  
+  </thead>
+  <tbody>
    <%
 try{FacilityWithProductPortTypeProxy productFacility = new FacilityWithProductPortTypeProxy();
 
@@ -108,7 +97,7 @@ for(FacilityWithProductInput iProductFacility: productFacility.getFacilityWithPr
 }catch(Exception ex){}
 
 %>
- 
+ </tbody>
 </table>
 
 
