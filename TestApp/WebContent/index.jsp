@@ -66,7 +66,7 @@ p{
   <div class="card bg-light text-dark">
   <div class="card-header">Products</div>
     <div class="card-body">
-    <p>Products.......</p>
+    <p class="card-text text-muted">To Get Products, Click Get Button!</p>
     <button type="button" class="btn btn-primary" onclick="location.href='Product.jsp';" >Get</button> 
     </div>
   </div>
@@ -76,7 +76,7 @@ p{
   <div class="card bg-light text-dark">
   <div class="card-header">Facility With Product</div>
     <div class="card-body">
-    <p>Facility with products........</p>
+    <p class="card-text text-muted">To Get Facility with Products, Click Get Button!</p>
     <button type="button" class="btn btn-primary" onclick="location.href='ProductFacility.jsp';">Get</button> 
     </div>
   </div>
@@ -86,7 +86,7 @@ p{
   <div class="card bg-light text-dark">
   <div class="card-header">Supplier With Product</div>
     <div class="card-body">
-    <p>Supplier with products........</p>
+    <p class="card-text text-muted">To Get Supplier with Products, Click Get Button!</p>
     <button type="button" class="btn btn-primary" onclick="location.href='ProductSupplier.jsp';">Get</button> 
     </div>
   </div>
