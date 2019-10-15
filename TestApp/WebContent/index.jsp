@@ -7,6 +7,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -14,8 +16,9 @@
 
 <style> 
 .card-body button{
-width: 80%;
-margin:20px 20px 10px 30px;
+width: 40%;
+text-align: center;
+margin:10px 0 10px 5%;
 border-radius:4px;
 }
 
@@ -67,7 +70,10 @@ p{
   <div class="card-header">Products</div>
     <div class="card-body">
     <p class="card-text text-muted">To Get Products, Click Get Button!</p>
-    <button type="button" class="btn btn-primary" onclick="location.href='Product.jsp';" >Get</button> 
+    <div class="row">
+     <button type="button" class="btn btn-primary" onclick="location.href='Product.jsp';">Get</button>
+     <button type="button" class="btn btn-primary" onclick="location.href='InsertProduct.jsp';">Create</button>
+    </div>
     </div>
   </div>
 </div>
@@ -77,7 +83,11 @@ p{
   <div class="card-header">Facility With Product</div>
     <div class="card-body">
     <p class="card-text text-muted">To Get Facility with Products, Click Get Button!</p>
+    <div class = "row">
     <button type="button" class="btn btn-primary" onclick="location.href='ProductFacility.jsp';">Get</button> 
+    <button type="button" class="btn btn-primary" onclick="location.href='ProductFacility.jsp';">Create</button> 
+    </div>
+    
     </div>
   </div>
 </div>
@@ -87,7 +97,11 @@ p{
   <div class="card-header">Supplier With Product</div>
     <div class="card-body">
     <p class="card-text text-muted">To Get Supplier with Products, Click Get Button!</p>
-    <button type="button" class="btn btn-primary" onclick="location.href='ProductSupplier.jsp';">Get</button> 
+    <div class ="row">
+     <button type="button" class="btn btn-primary" onclick="location.href='ProductSupplier.jsp';">Get</button> 
+      <button type="button" class="btn btn-primary" onclick="location.href='ProductSupplier.jsp';">Create</button> 
+    </div>
+   
     </div>
   </div>
 </div>

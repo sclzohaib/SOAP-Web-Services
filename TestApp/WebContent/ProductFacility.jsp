@@ -28,7 +28,6 @@ h2{
 text-align: center;
 font-weight: bold;
 padding:2%;
-
 }
 
 th ,td{
@@ -99,6 +98,8 @@ for(FacilityWithProductInput iProductFacility: productFacility.getFacilityWithPr
 %>
  </tbody>
 </table>
+
+</div>
 
 
 </body>
