@@ -3,14 +3,14 @@ package com.ofbiz.createproduct;
 public class CreateProductOutput {
 	
 
-	public String supplierId;
+	public Long supplierId;
 	public String supplierName;
 	public String suppliercategory;
 	public String supplierLocation;
 	public CreateProductOutput() {
 		super();
 	}
-	public CreateProductOutput(String supplierId, String supplierName, String suppliercategory,
+	public CreateProductOutput(Long supplierId, String supplierName, String suppliercategory,
 			String supplierLocation) {
 		super();
 		this.supplierId = supplierId;
@@ -18,10 +18,10 @@ public class CreateProductOutput {
 		this.suppliercategory = suppliercategory;
 		this.supplierLocation = supplierLocation;
 	}
-	public String getSupplierId() {
+	public Long getSupplierId() {
 		return supplierId;
 	}
-	public void setSupplierId(String supplierId) {
+	public void setSupplierId(Long supplierId) {
 		this.supplierId = supplierId;
 	}
 	public String getSupplierName() {
@@ -47,6 +47,7 @@ public class CreateProductOutput {
 		return "CreateProductOutput [supplierId=" + supplierId + ", supplierName=" + supplierName
 				+ ", suppliercategory=" + suppliercategory + ", supplierLocation=" + supplierLocation + "]";
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

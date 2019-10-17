@@ -8,7 +8,7 @@
 package com.ofbiz.createproduct.xsd;
 
 public class CreateProductOutput  implements java.io.Serializable {
-    private java.lang.String supplierId;
+    private java.lang.Long supplierId;
 
     private java.lang.String supplierLocation;
 
@@ -20,7 +20,7 @@ public class CreateProductOutput  implements java.io.Serializable {
     }
 
     public CreateProductOutput(
-           java.lang.String supplierId,
+           java.lang.Long supplierId,
            java.lang.String supplierLocation,
            java.lang.String supplierName,
            java.lang.String suppliercategory) {
@@ -36,7 +36,7 @@ public class CreateProductOutput  implements java.io.Serializable {
      * 
      * @return supplierId
      */
-    public java.lang.String getSupplierId() {
+    public java.lang.Long getSupplierId() {
         return supplierId;
     }
 
@@ -46,7 +46,7 @@ public class CreateProductOutput  implements java.io.Serializable {
      * 
      * @param supplierId
      */
-    public void setSupplierId(java.lang.String supplierId) {
+    public void setSupplierId(java.lang.Long supplierId) {
         this.supplierId = supplierId;
     }
 
@@ -170,7 +170,7 @@ public class CreateProductOutput  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("supplierId");
         elemField.setXmlName(new javax.xml.namespace.QName("http://createproduct.ofbiz.com/xsd", "supplierId"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
