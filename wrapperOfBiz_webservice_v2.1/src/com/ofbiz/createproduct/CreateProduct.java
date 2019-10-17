@@ -75,10 +75,12 @@ public class CreateProduct {
 		try {
 			connection = connectionFactory.getConnection();
 			connection.setAutoCommit(false);
-			String productId = generateProductId(connection);
-
+//			String productId = generateProductId(connection);
+			Long productId = generateProductId(connection);
+//			System.out.println(createProductInput.productTypeId);
 			preparedStatement = connection.prepareStatement(INSERT_PRODUCT, Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, productId);
+//			preparedStatement.setString(1, productId);
+			preparedStatement.setLong(1, productId);
 			preparedStatement.setString(2, createProductInput.productTypeId);
 			preparedStatement.setString(3, createProductInput.primaryProductCategoryId);
 			preparedStatement.setString(4, createProductInput.manufacturerPartyId);
@@ -182,10 +184,10 @@ public class CreateProduct {
 		return sdf.format(date);
 	}
 	
-	private void insertProductKeyword(Connection connection, CreateProductInput createProductInput, String productId) {
+	private void insertProductKeyword(Connection connection, CreateProductInput createProductInput, Long productId) {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PRODUCT_KEYWORD, Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, productId);
+			preparedStatement.setLong(1, productId);
 			preparedStatement.setString(2, createProductInput.keyword);
 			preparedStatement.setString(3, createProductInput.keywordTypeId);
 			preparedStatement.setString(4, createProductInput.keywordRelevancyWeight);
@@ -202,11 +204,12 @@ public class CreateProduct {
 		}
 	}
 	
-	private void insertProductDimmension(Connection connection, CreateProductInput createProductInput, String productId) {
+	private void insertProductDimmension(Connection connection, CreateProductInput createProductInput, Long productId) {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PRODUCT_DIMENSION, Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, generateDimensionId(connection));
-			preparedStatement.setString(2, productId);
+//			preparedStatement.setString(1, generateDimensionId(connection));
+			preparedStatement.setLong(1, generateDimensionId(connection));
+			preparedStatement.setLong(2, productId);
 			preparedStatement.setString(3, createProductInput.productTypeId);
 			preparedStatement.setString(4, createProductInput.brandName);
 			preparedStatement.setString(5, createProductInput.internalName);
@@ -222,17 +225,62 @@ public class CreateProduct {
 		}
 	}
 	
-	private String generateDimensionId(Connection connection) {
+//	private String generateDimensionId(Connection connection) {
+//
+//		try {
+//
+//			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+//					ResultSet.CONCUR_READ_ONLY);
+//			ResultSet resultSet = statement.executeQuery("Select * from PRODUCT_DIMENSION order by DIMENSION_ID desc limit 1");
+//			if(!resultSet.isBeforeFirst()) return "1";
+//			while (resultSet.next()) {
+//				String dimensionId = resultSet.getString("DIMENSION_ID");
+//				dimensionId = String.valueOf((Integer.parseInt(dimensionId) + 1));
+//				return dimensionId;
+//			}
+//
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//		return null;
+//	}
+	
+//	private String generateProductId(Connection connection) {
+//
+//		try {
+//			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+//					ResultSet.CONCUR_READ_ONLY);
+//			ResultSet resultSet = statement.executeQuery("Select * from PRODUCT order by PRODUCT_ID desc limit 1");	
+//			if(!resultSet.isBeforeFirst()) return "1";
+//			while (resultSet.next()) {
+//				String productId = resultSet.getString("PRODUCT_ID");
+//				System.out.println("Product id testing: " + productId);
+//				productId = String.valueOf((Integer.parseInt(productId) + 1));
+//				return productId;
+//			}
+//
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//		return null;
+//	}
+	
+	private Long generateDimensionId(Connection connection) {
 
 		try {
 
 			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 					ResultSet.CONCUR_READ_ONLY);
 			ResultSet resultSet = statement.executeQuery("Select * from PRODUCT_DIMENSION order by DIMENSION_ID desc limit 1");
-			if(!resultSet.isBeforeFirst()) return "1";
+			if(!resultSet.isBeforeFirst()) return 1L;
 			while (resultSet.next()) {
-				String dimensionId = resultSet.getString("DIMENSION_ID");
-				dimensionId = String.valueOf((Integer.parseInt(dimensionId) + 1));
+				Long dimensionId = resultSet.getLong("DIMENSION_ID");
+//				dimensionId = String.valueOf((Integer.parseInt(dimensionId) + 1));
+				dimensionId = dimensionId + 1;
 				return dimensionId;
 			}
 
@@ -244,17 +292,19 @@ public class CreateProduct {
 		return null;
 	}
 	
-	private String generateProductId(Connection connection) {
+	private Long generateProductId(Connection connection) {
 
 		try {
 			Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 					ResultSet.CONCUR_READ_ONLY);
 			ResultSet resultSet = statement.executeQuery("Select * from PRODUCT order by PRODUCT_ID desc limit 1");	
-			if(!resultSet.isBeforeFirst()) return "1";
+			if(!resultSet.isBeforeFirst()) return 1L;
 			while (resultSet.next()) {
-				String productId = resultSet.getString("PRODUCT_ID");
-				System.out.println(productId);
-				productId = String.valueOf((Integer.parseInt(productId) + 1));
+			
+				Long productId = resultSet.getLong("PRODUCT_ID");
+//				System.out.println("Product id testing: " + productId);
+				//productId = String.valueOf((Integer.parseInt(productId) + 1));
+				productId = productId + 1;
 				return productId;
 			}
 

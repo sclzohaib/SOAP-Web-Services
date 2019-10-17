@@ -13,16 +13,16 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		CreateProduct createProduct = new CreateProduct();
-		FacilityWithProduct facilityWithProduct = new FacilityWithProduct();
-		GetSupplierWithProduct getSupplierWithProduct = new GetSupplierWithProduct();
-//		CreateProductInput createProductInput = new CreateProductInput();
-//		createProductInput.brandName = "ALOVERA";
-//		createProductInput.productTypeId = "HERBAL";
-//		createProductInput.internalName = "ALO";
-//		createProductInput.productName = "ABC";
-//		CreateProductOutput createProductOutput = createProduct.createProduct(createProductInput);
-//		
-//		System.out.println("Product Created with id = " + createProductOutput.supplierId);
+//		FacilityWithProduct facilityWithProduct = new FacilityWithProduct();
+//		GetSupplierWithProduct getSupplierWithProduct = new GetSupplierWithProduct();
+		CreateProductInput createProductInput = new CreateProductInput();
+		createProductInput.brandName = "ALOVERA";
+		createProductInput.productTypeId = "HERBAL";
+		createProductInput.internalName = "ALO";
+		createProductInput.productName = "ABC";
+		CreateProductOutput createProductOutput = createProduct.createProduct(createProductInput);
+		
+		System.out.println("Product Created with id = " + createProductOutput.supplierId);
 //		
 //		
 //		SupplierWithProduct supplierWithProduct = new SupplierWithProduct();

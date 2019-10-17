@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   <%@page import="com.ofbiz.createproduct.CreateProductPortTypeProxy"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +13,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   
+
+  
   
 <title>Add Product</title>
 
@@ -103,27 +108,39 @@ font-weight: bold;
 
 <div class="form-style-8">
   <h2>Insert Product</h2>
-  <form>
-  <label for="sel1">Product Type</label>
-  <select class="form-control" id="sel1">
+  <form action="" method="POST">
+  <label for="productTypeId">Product Type</label>
+  <select class="form-control" id="productTypeId" name="productTypeId">
   	<option>Please Select</option>
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
+    <option>HERBAL</option>
+    <option>ALOVERA</option>
+    
   </select>
     <label>Brand Name</label>
-    <input type="text" name="field2" placeholder="" />
+    <input type="text" name="brandName" placeholder="" />
   <label>Internal Name</label>
-    <input type="text" name="field3" placeholder="" />
+    <input type="text" name="internalName" placeholder="" />
          
-   <button type="button" class="btn btn-primary">CREATE</button>
+   <button type="submit" name="submit" id="submit" value="CREATE" class="btn btn-primary">CREATE</button>
    
+   <jsp:useBean id="u" class="com.ofbiz.createproduct.xsd.CreateProductInput"></jsp:useBean>
+    <jsp:setProperty property="*" name="u"/>
+   <%
+   String x = request.getParameter("submit");
+   if(x!= null && x.equalsIgnoreCase("CREATE")){
+	   
+   CreateProductPortTypeProxy product = new CreateProductPortTypeProxy();
+   product.createProduct(u);
+   System.out.println("Added Successfully");
+ 
+   }
+  
+   %>
    </form>
     
 </div>
+  
 
 </body>
-
 
 </html>
