@@ -3,6 +3,7 @@ package com.ofbiz.createproduct;
 import java.util.Date;
 
 public class CreateProductInput {
+	public String productId;
 	public String productTypeId;
 	public String primaryProductCategoryId;
 	public String manufacturerPartyId;
@@ -82,6 +83,12 @@ public class CreateProductInput {
 	public String keywordRelevancyWeight;
 	public String keywordStatusId;
 	
+	public String getProductId() {
+		return productId;
+	}
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
 	public String getProductTypeId() {
 		return productTypeId;
 	}

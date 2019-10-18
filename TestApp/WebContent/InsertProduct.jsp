@@ -109,6 +109,8 @@ font-weight: bold;
 <div class="form-style-8">
   <h2>Insert Product</h2>
   <form action="" method="POST">
+  <label>Product ID</label>
+    <input type="text" name="productId" placeholder="" />
   <label for="productTypeId">Product Type</label>
   <select class="form-control" id="productTypeId" name="productTypeId">
   	<option>Please Select</option>

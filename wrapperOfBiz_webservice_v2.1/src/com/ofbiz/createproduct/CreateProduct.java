@@ -76,11 +76,11 @@ public class CreateProduct {
 			connection = connectionFactory.getConnection();
 			connection.setAutoCommit(false);
 //			String productId = generateProductId(connection);
-			Long productId = generateProductId(connection);
+//			Long productId = generateProductId(connection);
 //			System.out.println(createProductInput.productTypeId);
 			preparedStatement = connection.prepareStatement(INSERT_PRODUCT, Statement.RETURN_GENERATED_KEYS);
 //			preparedStatement.setString(1, productId);
-			preparedStatement.setLong(1, productId);
+			preparedStatement.setString(1, createProductInput.productId);
 			preparedStatement.setString(2, createProductInput.productTypeId);
 			preparedStatement.setString(3, createProductInput.primaryProductCategoryId);
 			preparedStatement.setString(4, createProductInput.manufacturerPartyId);
@@ -157,9 +157,9 @@ public class CreateProduct {
 			preparedStatement.setString(75, formatDate(createProductInput.createdTxStamp));
 			preparedStatement.execute();
 			connection.commit();
-			createProductOutput.supplierId = productId;
-			insertProductKeyword(connection, createProductInput, productId);
-			insertProductDimmension(connection, createProductInput, productId);
+			createProductOutput.supplierId = createProductInput.productId;
+			insertProductKeyword(connection, createProductInput, createProductInput.productId);
+			insertProductDimmension(connection, createProductInput, createProductInput.productId);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -184,10 +184,10 @@ public class CreateProduct {
 		return sdf.format(date);
 	}
 	
-	private void insertProductKeyword(Connection connection, CreateProductInput createProductInput, Long productId) {
+	private void insertProductKeyword(Connection connection, CreateProductInput createProductInput, String productId) {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PRODUCT_KEYWORD, Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setLong(1, productId);
+			preparedStatement.setString(1, productId);
 			preparedStatement.setString(2, createProductInput.keyword);
 			preparedStatement.setString(3, createProductInput.keywordTypeId);
 			preparedStatement.setString(4, createProductInput.keywordRelevancyWeight);
@@ -204,12 +204,12 @@ public class CreateProduct {
 		}
 	}
 	
-	private void insertProductDimmension(Connection connection, CreateProductInput createProductInput, Long productId) {
+	private void insertProductDimmension(Connection connection, CreateProductInput createProductInput, String productId) {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PRODUCT_DIMENSION, Statement.RETURN_GENERATED_KEYS);
 //			preparedStatement.setString(1, generateDimensionId(connection));
 			preparedStatement.setLong(1, generateDimensionId(connection));
-			preparedStatement.setLong(2, productId);
+			preparedStatement.setString(2, productId);
 			preparedStatement.setString(3, createProductInput.productTypeId);
 			preparedStatement.setString(4, createProductInput.brandName);
 			preparedStatement.setString(5, createProductInput.internalName);
