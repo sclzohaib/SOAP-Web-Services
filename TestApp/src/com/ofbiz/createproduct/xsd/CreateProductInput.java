@@ -124,7 +124,7 @@ public class CreateProductInput  implements java.io.Serializable {
 
     private java.util.Date releaseDate;
 
-    private java.lang.Double requireAmount;
+    private org.apache.axis.types.UnsignedShort requireAmount;
 
     private java.lang.String requireInventory;
 
@@ -228,7 +228,7 @@ public class CreateProductInput  implements java.io.Serializable {
            java.lang.Double qunatityIncluded,
            java.lang.String ratingTypeEnum,
            java.util.Date releaseDate,
-           java.lang.Double requireAmount,
+           org.apache.axis.types.UnsignedShort requireAmount,
            java.lang.String requireInventory,
            java.lang.String requirementMethodEnumId,
            java.lang.String reserv2NsPPPerc,
@@ -1496,7 +1496,7 @@ public class CreateProductInput  implements java.io.Serializable {
      * 
      * @return requireAmount
      */
-    public java.lang.Double getRequireAmount() {
+    public org.apache.axis.types.UnsignedShort getRequireAmount() {
         return requireAmount;
     }
 
@@ -1506,7 +1506,7 @@ public class CreateProductInput  implements java.io.Serializable {
      * 
      * @param requireAmount
      */
-    public void setRequireAmount(java.lang.Double requireAmount) {
+    public void setRequireAmount(org.apache.axis.types.UnsignedShort requireAmount) {
         this.requireAmount = requireAmount;
     }
 
@@ -2826,7 +2826,7 @@ public class CreateProductInput  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("requireAmount");
         elemField.setXmlName(new javax.xml.namespace.QName("http://createproduct.ofbiz.com/xsd", "requireAmount"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "double"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "unsignedShort"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

@@ -46,7 +46,7 @@ public class CreateProduct {
 				createProductInput.setReleaseDate(rs.getDate("RELEASE_DATE"));
 				createProductInput.setInternalName(rs.getString("INTERNAL_NAME"));
 				createProductInput.setBrandName(rs.getString("BRAND_NAME"));
-				createProductInput.setRequireAmount(rs.getDouble("REQUIRE_AMOUNT"));
+				createProductInput.setRequireAmount(rs.getString("REQUIRE_AMOUNT").charAt(0));
 				createProductInput.setChargeShipping(rs.getDouble("CHARGE_SHIPPING"));
 				createProductInput.setCreatedDate(rs.getDate("CREATED_DATE"));
 	//System.out.println(createProductInput.getProductName());
@@ -109,7 +109,7 @@ public class CreateProduct {
 			preparedStatement.setString(27, createProductInput.quantityUomId);
 			preparedStatement.setDouble(28, createProductInput.qunatityIncluded);
 			preparedStatement.setDouble(29, createProductInput.piecesIncluded);
-			preparedStatement.setDouble(30, createProductInput.requireAmount);
+			preparedStatement.setString(30, String.valueOf(createProductInput.requireAmount));
 			preparedStatement.setDouble(31, createProductInput.fixedAmount);
 			preparedStatement.setString(32, createProductInput.amountUomTypeId);
 			preparedStatement.setString(33, createProductInput.weightUom);

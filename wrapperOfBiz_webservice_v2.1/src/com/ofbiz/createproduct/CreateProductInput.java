@@ -32,7 +32,7 @@ public class CreateProductInput {
 	public String quantityUomId;
 	public double qunatityIncluded;
 	public double piecesIncluded;
-	public double requireAmount;
+	public char requireAmount;
 	public double fixedAmount;
 	public String amountUomTypeId;
 	public String weightUom;
@@ -257,10 +257,10 @@ public class CreateProductInput {
 	public void setPiecesIncluded(double piecesIncluded) {
 		this.piecesIncluded = piecesIncluded;
 	}
-	public double getRequireAmount() {
+	public char getRequireAmount() {
 		return requireAmount;
 	}
-	public void setRequireAmount(double requireAmount) {
+	public void setRequireAmount(char requireAmount) {
 		this.requireAmount = requireAmount;
 	}
 	public double getFixedAmount() {
