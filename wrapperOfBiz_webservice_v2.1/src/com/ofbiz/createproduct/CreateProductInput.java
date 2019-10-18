@@ -53,7 +53,7 @@ public class CreateProductInput {
 	public String ratingTypeEnum;
 	public boolean returnable;
 	public boolean taxable;
-	public double chargeShipping;
+	public char chargeShipping;
 	public String autoCreateKeywords;
 	public boolean includeInPromotions;
 	public boolean isVirtual;
@@ -383,10 +383,10 @@ public class CreateProductInput {
 	public void setTaxable(boolean taxable) {
 		this.taxable = taxable;
 	}
-	public double getChargeShipping() {
+	public char getChargeShipping() {
 		return chargeShipping;
 	}
-	public void setChargeShipping(double chargeShipping) {
+	public void setChargeShipping(char chargeShipping) {
 		this.chargeShipping = chargeShipping;
 	}
 	public String getAutoCreateKeywords() {
