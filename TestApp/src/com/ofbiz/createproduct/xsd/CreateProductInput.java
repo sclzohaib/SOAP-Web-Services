@@ -104,6 +104,8 @@ public class CreateProductInput  implements java.io.Serializable {
 
     private java.lang.String productHeight;
 
+    private java.lang.String productId;
+
     private java.lang.String productName;
 
     private java.lang.String productRating;
@@ -216,6 +218,7 @@ public class CreateProductInput  implements java.io.Serializable {
            java.lang.String productDepth,
            java.lang.String productDiameter,
            java.lang.String productHeight,
+           java.lang.String productId,
            java.lang.String productName,
            java.lang.String productRating,
            java.lang.String productTypeId,
@@ -294,6 +297,7 @@ public class CreateProductInput  implements java.io.Serializable {
            this.productDepth = productDepth;
            this.productDiameter = productDiameter;
            this.productHeight = productHeight;
+           this.productId = productId;
            this.productName = productName;
            this.productRating = productRating;
            this.productTypeId = productTypeId;
@@ -1288,6 +1292,26 @@ public class CreateProductInput  implements java.io.Serializable {
 
 
     /**
+     * Gets the productId value for this CreateProductInput.
+     * 
+     * @return productId
+     */
+    public java.lang.String getProductId() {
+        return productId;
+    }
+
+
+    /**
+     * Sets the productId value for this CreateProductInput.
+     * 
+     * @param productId
+     */
+    public void setProductId(java.lang.String productId) {
+        this.productId = productId;
+    }
+
+
+    /**
      * Gets the productName value for this CreateProductInput.
      * 
      * @return productName
@@ -2042,6 +2066,9 @@ public class CreateProductInput  implements java.io.Serializable {
             ((this.productHeight==null && other.getProductHeight()==null) || 
              (this.productHeight!=null &&
               this.productHeight.equals(other.getProductHeight()))) &&
+            ((this.productId==null && other.getProductId()==null) || 
+             (this.productId!=null &&
+              this.productId.equals(other.getProductId()))) &&
             ((this.productName==null && other.getProductName()==null) || 
              (this.productName!=null &&
               this.productName.equals(other.getProductName()))) &&
@@ -2286,6 +2313,9 @@ public class CreateProductInput  implements java.io.Serializable {
         }
         if (getProductHeight() != null) {
             _hashCode += getProductHeight().hashCode();
+        }
+        if (getProductId() != null) {
+            _hashCode += getProductId().hashCode();
         }
         if (getProductName() != null) {
             _hashCode += getProductName().hashCode();
@@ -2719,6 +2749,13 @@ public class CreateProductInput  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("productHeight");
         elemField.setXmlName(new javax.xml.namespace.QName("http://createproduct.ofbiz.com/xsd", "productHeight"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("productId");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://createproduct.ofbiz.com/xsd", "productId"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);

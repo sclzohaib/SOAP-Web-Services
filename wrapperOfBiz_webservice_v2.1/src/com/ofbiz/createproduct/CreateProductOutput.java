@@ -3,14 +3,14 @@ package com.ofbiz.createproduct;
 public class CreateProductOutput {
 	
 
-	public Long supplierId;
+	public String supplierId;
 	public String supplierName;
 	public String suppliercategory;
 	public String supplierLocation;
 	public CreateProductOutput() {
 		super();
 	}
-	public CreateProductOutput(Long supplierId, String supplierName, String suppliercategory,
+	public CreateProductOutput(String supplierId, String supplierName, String suppliercategory,
 			String supplierLocation) {
 		super();
 		this.supplierId = supplierId;
@@ -18,10 +18,10 @@ public class CreateProductOutput {
 		this.suppliercategory = suppliercategory;
 		this.supplierLocation = supplierLocation;
 	}
-	public Long getSupplierId() {
+	public String getSupplierId() {
 		return supplierId;
 	}
-	public void setSupplierId(Long supplierId) {
+	public void setSupplierId(String supplierId) {
 		this.supplierId = supplierId;
 	}
 	public String getSupplierName() {
