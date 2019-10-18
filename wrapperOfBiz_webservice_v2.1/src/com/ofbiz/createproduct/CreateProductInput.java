@@ -73,7 +73,7 @@ public class CreateProductInput {
 	public String inShippingBox;
 	public String defaultShipmentBoxTypeId;
 	public String lotIdFiledIn;
-	public double orderDecimalQuantity;
+	public char orderDecimalQuantity;
 	public String lastUpdatedStamp;
 	public String lastUpdatedTxStamp;
 	public Date createdStamp;
@@ -503,10 +503,10 @@ public class CreateProductInput {
 	public void setLotIdFiledIn(String lotIdFiledIn) {
 		this.lotIdFiledIn = lotIdFiledIn;
 	}
-	public double getOrderDecimalQuantity() {
+	public char getOrderDecimalQuantity() {
 		return orderDecimalQuantity;
 	}
-	public void setOrderDecimalQuantity(double orderDecimalQuantity) {
+	public void setOrderDecimalQuantity(char orderDecimalQuantity) {
 		this.orderDecimalQuantity = orderDecimalQuantity;
 	}
 	public String getLastUpdatedStamp() {

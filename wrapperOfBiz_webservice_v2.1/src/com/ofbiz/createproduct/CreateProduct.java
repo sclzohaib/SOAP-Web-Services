@@ -150,7 +150,7 @@ public class CreateProduct {
 			preparedStatement.setString(68, createProductInput.inShippingBox);
 			preparedStatement.setString(69, createProductInput.defaultShipmentBoxTypeId);
 			preparedStatement.setString(70, createProductInput.lotIdFiledIn);
-			preparedStatement.setDouble(71, createProductInput.orderDecimalQuantity);
+			preparedStatement.setString(71, String.valueOf(createProductInput.orderDecimalQuantity));
 			preparedStatement.setString(72, createProductInput.lastUpdatedStamp);
 			preparedStatement.setString(73, createProductInput.lastUpdatedTxStamp);
 			preparedStatement.setString(74, formatDate(createProductInput.createdStamp));

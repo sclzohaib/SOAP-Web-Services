@@ -86,7 +86,7 @@ public class CreateProductInput  implements java.io.Serializable {
 
     private java.lang.String mediumImageUrl;
 
-    private java.lang.Double orderDecimalQuantity;
+    private org.apache.axis.types.UnsignedShort orderDecimalQuantity;
 
     private java.lang.String originGeoId;
 
@@ -209,7 +209,7 @@ public class CreateProductInput  implements java.io.Serializable {
            java.lang.String lotIdFiledIn,
            java.lang.String manufacturerPartyId,
            java.lang.String mediumImageUrl,
-           java.lang.Double orderDecimalQuantity,
+           org.apache.axis.types.UnsignedShort orderDecimalQuantity,
            java.lang.String originGeoId,
            java.lang.String originalImageUrl,
            java.lang.Double piecesIncluded,
@@ -1116,7 +1116,7 @@ public class CreateProductInput  implements java.io.Serializable {
      * 
      * @return orderDecimalQuantity
      */
-    public java.lang.Double getOrderDecimalQuantity() {
+    public org.apache.axis.types.UnsignedShort getOrderDecimalQuantity() {
         return orderDecimalQuantity;
     }
 
@@ -1126,7 +1126,7 @@ public class CreateProductInput  implements java.io.Serializable {
      * 
      * @param orderDecimalQuantity
      */
-    public void setOrderDecimalQuantity(java.lang.Double orderDecimalQuantity) {
+    public void setOrderDecimalQuantity(org.apache.axis.types.UnsignedShort orderDecimalQuantity) {
         this.orderDecimalQuantity = orderDecimalQuantity;
     }
 
@@ -2693,7 +2693,7 @@ public class CreateProductInput  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("orderDecimalQuantity");
         elemField.setXmlName(new javax.xml.namespace.QName("http://createproduct.ofbiz.com/xsd", "orderDecimalQuantity"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "double"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "unsignedShort"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
