@@ -47,7 +47,7 @@ public class CreateProduct {
 				createProductInput.setInternalName(rs.getString("INTERNAL_NAME"));
 				createProductInput.setBrandName(rs.getString("BRAND_NAME"));
 				createProductInput.setRequireAmount(rs.getString("REQUIRE_AMOUNT").charAt(0));
-				createProductInput.setChargeShipping(rs.getDouble("CHARGE_SHIPPING"));
+				createProductInput.setChargeShipping(rs.getString("CHARGE_SHIPPING").charAt(0));
 				createProductInput.setCreatedDate(rs.getDate("CREATED_DATE"));
 	//System.out.println(createProductInput.getProductName());
 				getProduct.add(createProductInput);
@@ -130,7 +130,7 @@ public class CreateProduct {
 			preparedStatement.setString(48, createProductInput.ratingTypeEnum);
 			preparedStatement.setBoolean(49, createProductInput.returnable);
 			preparedStatement.setBoolean(50, createProductInput.taxable);
-			preparedStatement.setDouble(51, createProductInput.chargeShipping);
+			preparedStatement.setString(51, String.valueOf(createProductInput.chargeShipping));
 			preparedStatement.setString(52, createProductInput.autoCreateKeywords);
 			preparedStatement.setBoolean(53, createProductInput.includeInPromotions);
 			preparedStatement.setBoolean(54, createProductInput.isVirtual);

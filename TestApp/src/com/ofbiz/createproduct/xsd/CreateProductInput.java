@@ -16,7 +16,7 @@ public class CreateProductInput  implements java.io.Serializable {
 
     private java.lang.String brandName;
 
-    private java.lang.Double chargeShipping;
+    private org.apache.axis.types.UnsignedShort chargeShipping;
 
     private java.lang.String comments;
 
@@ -174,7 +174,7 @@ public class CreateProductInput  implements java.io.Serializable {
            java.lang.String autoCreateKeywords,
            java.lang.String billOfMaterialLevel,
            java.lang.String brandName,
-           java.lang.Double chargeShipping,
+           org.apache.axis.types.UnsignedShort chargeShipping,
            java.lang.String comments,
            java.lang.String configId,
            java.lang.String createdByUserLogin,
@@ -416,7 +416,7 @@ public class CreateProductInput  implements java.io.Serializable {
      * 
      * @return chargeShipping
      */
-    public java.lang.Double getChargeShipping() {
+    public org.apache.axis.types.UnsignedShort getChargeShipping() {
         return chargeShipping;
     }
 
@@ -426,7 +426,7 @@ public class CreateProductInput  implements java.io.Serializable {
      * 
      * @param chargeShipping
      */
-    public void setChargeShipping(java.lang.Double chargeShipping) {
+    public void setChargeShipping(org.apache.axis.types.UnsignedShort chargeShipping) {
         this.chargeShipping = chargeShipping;
     }
 
@@ -2448,7 +2448,7 @@ public class CreateProductInput  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("chargeShipping");
         elemField.setXmlName(new javax.xml.namespace.QName("http://createproduct.ofbiz.com/xsd", "chargeShipping"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "double"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "unsignedShort"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
