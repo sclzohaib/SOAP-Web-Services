@@ -20,7 +20,6 @@
 <title>Add Product</title>
 
 <style type = "text/css">
-
 body{
 margin : 40px;
 padding: 20px;
@@ -29,9 +28,7 @@ background-position: center;
 background-color:#F5F5F5;
 padding-top:0;
 padding-bottom:10px;
-
 }
-
 .form-style-8{
 	font-family: 'Open Sans Condensed', arial, sans;
 	width: 80%;
@@ -41,7 +38,6 @@ padding-bottom:10px;
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
 	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
 	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
-
 }
 .form-style-8 h2{
 	background: #4D4D4D;
@@ -65,7 +61,6 @@ padding-bottom:10px;
 .form-style-8 input[type="password"],
 .form-style-8 textarea,
 .form-style-8 select
-
 {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -81,64 +76,16 @@ padding-bottom:10px;
 	font: 16px Arial, Helvetica, sans-serif;
 	height: 45px;
 }
-
-
-
 .form-style-8 button{
 width: 40%;
 margin:20px;
 margin-left: 30%;
 border-radius:6px;
 padding-top:6px;
-
-
 }
-
 .form-style-8 label{
 font: 16px Arial, Helvetica, sans-serif;
 font-weight: bold;
-}
-
-#snackbar {
-  visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 2px;
-  padding: 16px;
-  position: fixed;
-  z-index: 1;
-  left: 50%;
-  bottom: 30px;
-  font-size: 17px;
-}
-
-#snackbar.show {
-  visibility: visible;
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-@-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;} 
-  to {bottom: 30px; opacity: 1;}
-}
-
-@keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
-}
-
-@-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
-  to {bottom: 0; opacity: 0;}
-}
-
-@keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
 }
 </style>
 
@@ -149,42 +96,23 @@ font-weight: bold;
 <body>
 
 <div class="form-style-8">
-<<<<<<< HEAD
   <h2>Insert Product</h2>
   <form action="" method="POST">
   <label>Product ID</label>
     <input type="text" name="productId" placeholder="" />
   <label for="productTypeId">Product Type</label>
   <select class="form-control" id="productTypeId" name="productTypeId">
-=======
-  <h2>Create Product</h2>
-  <form>
-  <label for="sel1">Product Type</label>
-  <select class="form-control" id="sel1">
->>>>>>> branch 'UI_insertProductfacilitySupplier' of https://github.com/sclzohaib/SOAP-Web-Services.git
   	<option>Please Select</option>
     <option>DIGITAL_GOOD</option>
     <option>FINISHED_GOOD</option>
     
   </select>
     <label>Brand Name</label>
-<<<<<<< HEAD
     <input type="text" name="brandName" placeholder="" />
-=======
-    <input type="text" name="field2" placeholder="Brand Name" />
->>>>>>> branch 'UI_insertProductfacilitySupplier' of https://github.com/sclzohaib/SOAP-Web-Services.git
   <label>Internal Name</label>
-<<<<<<< HEAD
     <input type="text" name="internalName" placeholder="" />
          
    <button type="submit" name="submit" id="submit" value="CREATE" class="btn btn-primary">CREATE</button>
-=======
-    <input type="text" name="field3" placeholder="Internal Name" />
-    
-  
-       <div id="snackbar">Submit Successfully!</div>  
-   <button type="button" class="btn btn-primary" onclick="myFunction()">CREATE</button>
->>>>>>> branch 'UI_insertProductfacilitySupplier' of https://github.com/sclzohaib/SOAP-Web-Services.git
    
    <jsp:useBean id="u" class="com.ofbiz.createproduct.xsd.CreateProductInput"></jsp:useBean>
     <jsp:setProperty property="*" name="u"/>
@@ -206,16 +134,4 @@ font-weight: bold;
 
 </body>
 
-<<<<<<< HEAD
-=======
-<script>
-function myFunction() {
-  var x = document.getElementById("snackbar");
-  x.className = "show";
-  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-}
-</script>
-
-
->>>>>>> branch 'UI_insertProductfacilitySupplier' of https://github.com/sclzohaib/SOAP-Web-Services.git
 </html>
