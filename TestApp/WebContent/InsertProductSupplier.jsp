@@ -1,23 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-   <%@page import="com.ofbiz.createproduct.CreateProductPortTypeProxy"%>
-    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-   
-
   
-  
-<title>Add Product</title>
+<title>Add Product Supplier</title>
+</head>
 
 <style type = "text/css">
 
@@ -142,72 +136,105 @@ font-weight: bold;
 }
 </style>
 
-
-</head>
-
-
 <body>
-
 <div class="form-style-8">
-<<<<<<< HEAD
-  <h2>Insert Product</h2>
-  <form action="" method="POST">
-  <label>Product ID</label>
-    <input type="text" name="productId" placeholder="" />
-  <label for="productTypeId">Product Type</label>
-  <select class="form-control" id="productTypeId" name="productTypeId">
-=======
-  <h2>Create Product</h2>
+  <h2>Create Product Supplier</h2>
   <form>
-  <label for="sel1">Product Type</label>
+  <div class = "row">
+  <div class = "col-md-6">
+  <label for="sel1">Supplier</label>
   <select class="form-control" id="sel1">
->>>>>>> branch 'UI_insertProductfacilitySupplier' of https://github.com/sclzohaib/SOAP-Web-Services.git
   	<option>Please Select</option>
-    <option>DIGITAL_GOOD</option>
-    <option>FINISHED_GOOD</option>
-    
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
   </select>
-    <label>Brand Name</label>
-<<<<<<< HEAD
-    <input type="text" name="brandName" placeholder="" />
-=======
-    <input type="text" name="field2" placeholder="Brand Name" />
->>>>>>> branch 'UI_insertProductfacilitySupplier' of https://github.com/sclzohaib/SOAP-Web-Services.git
-  <label>Internal Name</label>
-<<<<<<< HEAD
-    <input type="text" name="internalName" placeholder="" />
-         
-   <button type="submit" name="submit" id="submit" value="CREATE" class="btn btn-primary">CREATE</button>
-=======
-    <input type="text" name="field3" placeholder="Internal Name" />
-    
+  </div>
+  <div class = "col-md-6">
+  <label for="sel1">Currency Uom ID</label>
+  <select class="form-control" id="sel1">
+  	<option>American-Dollar-USD</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+  </div>
+  </div>
   
-       <div id="snackbar">Submit Successfully!</div>  
-   <button type="button" class="btn btn-primary" onclick="myFunction()">CREATE</button>
->>>>>>> branch 'UI_insertProductfacilitySupplier' of https://github.com/sclzohaib/SOAP-Web-Services.git
-   
-   <jsp:useBean id="u" class="com.ofbiz.createproduct.xsd.CreateProductInput"></jsp:useBean>
-    <jsp:setProperty property="*" name="u"/>
-   <%
-   String x = request.getParameter("submit");
-   if(x!= null && x.equalsIgnoreCase("CREATE")){
-	   
-   CreateProductPortTypeProxy product = new CreateProductPortTypeProxy();
-   product.createProduct(u);
-   System.out.println("Added Successfully");
+  <div class = "row">
+  <div class = "col-md-6">
+   <label for="sel1">Supplier Per Order ID</label>
+  <select class="form-control" id="sel1">
+  	<option>Main Supplier</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+  </div>
+ <div class = "col-md-6">
+  <label for="sel1">Supplier Can Drop Ship</label>
+  <select class="form-control" id="sel1">
+  	<option>Please Select</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+  
+  </div>
+  
+  </div>
  
-   }
-  
-   %>
+ <div class = "row">
+  <div class = "col-md-6">
+   <label>Minimum Order Quantity</label>
+    <input type="text" name="field1" placeholder="0" />
+    </div>
+  <div class = "col-md-6">
+   <label>Available Through Date</label>
+    <input type="date" name="field2" placeholder="" />
+    </div>
+  </div>
+
+    <div class = "row">
+  <div class = "col-md-6"> 
+   <label>Supplier Product ID</label>
+    <input type="text" name="field3" placeholder="Select" />
+    </div>
+   <div class = "col-md-6">
+     <label>Last Price</label>
+    <input type="text" name="field4" placeholder="$" />
+    </div>
+   </div>
+   
+ 
+   
+     <div class = "row">
+  <div class = "col-md-6"> 
+   <label>Available From Date</label>
+    <input type="date" name="field5" placeholder="" />
+    </div>
+  <div class = "col-md-6">
+   <label>Comment</label>
+    <textarea rows="4" cols="50" placeholder ="Comment here">
+</textarea>
+     </div>
+  </div>
+    
+    <div id="snackbar">Submit Successfully!</div>
+         
+   <button type="button" class="btn btn-primary" onclick="myFunction()">CREATE</button>
+   
+   
    </form>
     
 </div>
-  
+</body>.
 
-</body>
 
-<<<<<<< HEAD
-=======
 <script>
 function myFunction() {
   var x = document.getElementById("snackbar");
@@ -215,7 +242,4 @@ function myFunction() {
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 </script>
-
-
->>>>>>> branch 'UI_insertProductfacilitySupplier' of https://github.com/sclzohaib/SOAP-Web-Services.git
 </html>
