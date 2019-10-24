@@ -22,15 +22,19 @@ margin:10px 0 10px 5%;
 border-radius:4px;
 }
 
+.card-body{
+padding : 10px;
+margin : 20px;
+}
+
 body{
-margin : 40px;
-padding: 20px;
+margin : 0px;
+padding: 0px;
 background-size: cover;
 background-position: center;
 background-color:#F0F0F0;
 padding-top:0;
 padding-bottom:10px;
-
 }
 
 
@@ -54,6 +58,7 @@ font-size: 50px;
 
 p{
   font-family: "Times New Roman", Times, serif;
+  margin-left:5%;
 }
 
 
@@ -72,7 +77,7 @@ p{
     <p class="card-text text-muted">To Get Products, Click Get Button!</p>
     <div class="row">
      <button type="button" class="btn btn-primary" onclick="location.href='Product.jsp';">Get</button>
-     <button type="button" class="btn btn-primary" onclick="location.href='InsertProduct.jsp';">Create</button>
+     <button type="button" class="btn btn-success" onclick="location.href='InsertProduct.jsp';">Create</button>
     </div>
     </div>
   </div>
@@ -85,7 +90,7 @@ p{
     <p class="card-text text-muted">To Get Facility with Products, Click Get Button!</p>
     <div class = "row">
     <button type="button" class="btn btn-primary" onclick="location.href='ProductFacility.jsp';">Get</button> 
-    <button type="button" class="btn btn-primary" onclick="location.href='ProductFacility.jsp';">Create</button> 
+    <button type="button" class="btn btn-success" onclick="location.href='InsertProductFacility.jsp';">Create</button> 
     </div>
     
     </div>
@@ -99,10 +104,9 @@ p{
     <p class="card-text text-muted">To Get Supplier with Products, Click Get Button!</p>
     <div class ="row">
      <button type="button" class="btn btn-primary" onclick="location.href='ProductSupplier.jsp';">Get</button> 
-      <button type="button" class="btn btn-primary" onclick="location.href='ProductSupplier.jsp';">Create</button> 
+      <button type="button" class="btn btn-success" onclick="location.href='InsertProductSupplier.jsp';">Create</button> 
     </div>
-   
-    </div>
+   </div>
   </div>
 </div>
 
