@@ -9,20 +9,20 @@ import com.ofbiz.supplierwithproduct.SupplierWithProductInput;
 import com.ofbiz.supplierwithproduct.SupplierWithProductOutput;
 
 public class Test {
-
+//203.135.63.70 (ofbizolap Schema URL)
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		CreateProduct createProduct = new CreateProduct();
 //		FacilityWithProduct facilityWithProduct = new FacilityWithProduct();
 //		GetSupplierWithProduct getSupplierWithProduct = new GetSupplierWithProduct();
-		CreateProductInput createProductInput = new CreateProductInput();
-		createProductInput.brandName = "ALOVERA";
-		createProductInput.productTypeId = "HERBAL";
-		createProductInput.internalName = "ALO";
-		createProductInput.productName = "ABC";
-		CreateProductOutput createProductOutput = createProduct.createProduct(createProductInput);
-		
-		System.out.println("Product Created with id = " + createProductOutput.supplierId);
+//		CreateProductInput createProductInput = new CreateProductInput();
+//		createProductInput.brandName = "ALOVERA";
+//		createProductInput.productTypeId = "HERBAL";
+//		createProductInput.internalName = "ALO";
+//		createProductInput.productName = "ABC";
+//		CreateProductOutput createProductOutput = createProduct.createProduct(createProductInput);
+//		
+//		System.out.println("Product Created with id = " + createProductOutput.supplierId);
 //		
 //		
 //		SupplierWithProduct supplierWithProduct = new SupplierWithProduct();
@@ -44,11 +44,13 @@ public class Test {
 //		System.out.println("Facility creaed = " + facilityWithProductOutput.facilityId);
 		
 		//Get Product Verification
-//		createProduct.getProduct().forEach(n -> {
+		createProduct.getProduct().forEach(n -> {
 //		System.out.println(n.getProductName());
 //		System.out.println(n.getBrandName());
 //		System.out.println(n.getCreatedDate());
-//		});
+			System.out.println(n.getRequireAmount() + " | "+n.getProductName());
+			//System.out.println(n.getOrderDecimalQuantity());
+		});
 		
 		//Get Product with Facility Verification
 //		facilityWithProduct.getFacilityWithProduct().forEach(n ->{

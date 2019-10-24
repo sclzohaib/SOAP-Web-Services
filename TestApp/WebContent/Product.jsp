@@ -58,55 +58,53 @@ th ,td{
   </tr>
   </thead>
   <%
-try{CreateProductPortTypeProxy product = new CreateProductPortTypeProxy();
-//System.out.println(product.getProduct()[0].getProductName());
-for(CreateProductInput iProduct: product.getProduct()) {
-	
-	out.println("<tr>");
-	
-	out.println("<td>");
-	out.println(iProduct.getProductTypeId()+"<br>");
-	//System.out.println(iProduct.getProductName()+"<br>");
-	out.println("</td>");
-	
-	out.println("<td>");
-	out.println(iProduct.getProductName()+"<br>");
-	//System.out.println(iProduct.getProductName()+"<br>");
-	out.println("</td>");
-	
-	out.println("<td>");
-	out.println(iProduct.getReleaseDate()+"<br>");
-	//System.out.println(iProduct.getProductName()+"<br>");
-	out.println("</td>");
-	
-	out.println("<td>");
-	out.println(iProduct.getInternalName()+"<br>");
-	//System.out.println(iProduct.getProductName()+"<br>");
-	out.println("</td>");
-	
-	out.println("<td>");
-	out.println(iProduct.getBrandName()+"<br>");
-	//System.out.println(iProduct.getProductName()+"<br>");
-	out.println("</td>");
-	
-	out.println("<td>");
-	out.println(iProduct.getRequireAmount()+"<br>");
-	//System.out.println(iProduct.getProductName()+"<br>");
-	out.println("</td>");
-	
-	out.println("<td>");
-	out.println(iProduct.getChargeShipping()+"<br>");
-	//System.out.println(iProduct.getProductName()+"<br>");
-	out.println("</td>");
-	
-	out.println("<td>");
-	out.println(iProduct.getCreatedDate()+"<br>");
-	//System.out.println(iProduct.getProductName()+"<br>");
-	out.println("</td>");
-	
-	out.println("</tr>");
-}
-}catch(Exception ex){}
+  try{CreateProductPortTypeProxy product = new CreateProductPortTypeProxy();
+  for(CreateProductInput iProduct: product.getProduct()) {
+	  out.println("<tr>");
+		
+		out.println("<td>");
+		out.println(iProduct.getProductTypeId()+"<br>");
+		//System.out.println(iProduct.getProductName()+"<br>");
+		out.println("</td>");
+		
+		out.println("<td>");
+		out.println(iProduct.getProductName()+"<br>");
+		//System.out.println(iProduct.getProductName()+"<br>");
+		out.println("</td>");
+		
+		out.println("<td>");
+		out.println(iProduct.getReleaseDate()+"<br>");
+		//System.out.println(iProduct.getProductName()+"<br>");
+		out.println("</td>");
+		
+		out.println("<td>");
+		out.println(iProduct.getInternalName()+"<br>");
+		//System.out.println(iProduct.getProductName()+"<br>");
+		out.println("</td>");
+		
+		out.println("<td>");
+		out.println(iProduct.getBrandName()+"<br>");
+		//System.out.println(iProduct.getProductName()+"<br>");
+		out.println("</td>");
+		
+		out.println("<td>");
+		out.println(iProduct.getRequireAmount()+"<br>");
+		//System.out.println(iProduct.getProductName()+"<br>");
+		out.println("</td>");
+		
+		out.println("<td>");
+		out.println(iProduct.getChargeShipping()+"<br>");
+		//System.out.println(iProduct.getProductName()+"<br>");
+		out.println("</td>");
+		
+		out.println("<td>");
+		out.println(iProduct.getCreatedDate()+"<br>");
+		//System.out.println(iProduct.getProductName()+"<br>");
+		out.println("</td>");
+		
+		out.println("</tr>");
+  }
+  }catch(Exception ex){ex.printStackTrace();}
 
 %>
   

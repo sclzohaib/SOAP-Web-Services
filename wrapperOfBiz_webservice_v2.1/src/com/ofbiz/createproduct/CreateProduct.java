@@ -25,6 +25,9 @@ public class CreateProduct {
 	private static final String INSERT_PRODUCT_KEYWORD = "INSERT INTO PRODUCT_KEYWORD_NEW (PRODUCT_ID, KEYWORD, KEYWORD_TYPE_ID, RELEVANCY_WEIGHT, STATUS_ID, LAST_UPDATED_STAMP, LAST_UPDATED_TX_STAMP, CREATED_STAMP, CREATED_TX_STAMP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String INSERT_PRODUCT_DIMENSION = "INSERT INTO PRODUCT_DIMENSION (DIMENSION_ID, PRODUCT_ID, PRODUCT_TYPE, BRAND_NAME, INTERNAL_NAME, LAST_UPDATED_STAMP, LAST_UPDATED_TX_STAMP, CREATED_STAMP, CREATED_TX_STAMP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String GET_PRODUCT = "SELECT * FROM PRODUCT";
+	//private static final String GET_PRODUCT_TYPE = "SELECT PRODUCT_TYPE_ID FROM product_type";
+	
+	
 	
 	
 	public List<CreateProductInput> getProduct(){
@@ -46,17 +49,44 @@ public class CreateProduct {
 				createProductInput.setReleaseDate(rs.getDate("RELEASE_DATE"));
 				createProductInput.setInternalName(rs.getString("INTERNAL_NAME"));
 				createProductInput.setBrandName(rs.getString("BRAND_NAME"));
-				createProductInput.setRequireAmount(rs.getString("REQUIRE_AMOUNT").charAt(0));
-				createProductInput.setChargeShipping(rs.getString("CHARGE_SHIPPING").charAt(0));
+//				createProductInput.setRequireAmount(if(rs.getString("REQUIRE_AMOUNT").equalsIgnoreCase(null) || rs.getString("REQUIRE_AMOUNT").charAt(0) == 0 ) { return 'E'});
+//				createProductInput.setRequireAmount(
+//						(rs.getString("REQUIRE_AMOUNT").charAt(0) == 0) || (rs.getString("REQUIRE_AMOUNT") == null) ? 'E' : rs.getString("REQUIRE_AMOUNT").charAt(0)
+//						);
+//				createProductInput.setChargeShipping(rs.getString("CHARGE_SHIPPING").charAt(0));
 				createProductInput.setCreatedDate(rs.getDate("CREATED_DATE"));
+				createProductInput.setRequireAmount(rs.getString("REQUIRE_AMOUNT"));
 	//System.out.println(createProductInput.getProductName());
+				
+				/*String abc = rs.getString("REQUIRE_AMOUNT");
+				char xyz;				
+				if(abc!=null) {
+					char c = abc.charAt(0);
+					//Can use ASCII condition to allow all alphabets (upper and lower case both)
+					if(c == 'Y' || c == 'N') {
+						xyz = abc.charAt(0);
+						createProductInput.setRequireAmount(xyz);
+					}
+					else {
+					xyz = '-';
+					createProductInput.setRequireAmount(xyz);
+					}
+				}
+				else {
+					
+					xyz = '-';
+					createProductInput.setRequireAmount(xyz);
+				}*/
+				
+				
+				//System.out.println(xyz + " " + abc);
 				getProduct.add(createProductInput);
 			
 			}
 		
 		}
 		catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 	finally {
 		connectionFactory.close(connection);
@@ -70,11 +100,14 @@ public class CreateProduct {
 		
 		PreparedStatement preparedStatement = null;
 		Connection connection = null;
+		Connection connectionOlap = null;
 		ConnectionFactory connectionFactory = new ConnectionFactory();
 		CreateProductOutput createProductOutput = new CreateProductOutput();
 		try {
 			connection = connectionFactory.getConnection();
+			connectionOlap = connectionFactory.getConnectionOlap();
 			connection.setAutoCommit(false);
+			connectionOlap.setAutoCommit(false);
 //			String productId = generateProductId(connection);
 //			Long productId = generateProductId(connection);
 //			System.out.println(createProductInput.productTypeId);
@@ -109,7 +142,9 @@ public class CreateProduct {
 			preparedStatement.setString(27, createProductInput.quantityUomId);
 			preparedStatement.setDouble(28, createProductInput.qunatityIncluded);
 			preparedStatement.setDouble(29, createProductInput.piecesIncluded);
-			preparedStatement.setString(30, String.valueOf(createProductInput.requireAmount));
+//			preparedStatement.setString(30, String.valueOf(createProductInput.requireAmount));
+			//preparedStatement.setString(30,(String.valueOf(createProductInput.requireAmount)==null) ? "-" : String.valueOf(createProductInput.requireAmount));
+			preparedStatement.setString(30,(createProductInput.requireAmount)==null ? "-" : createProductInput.requireAmount);
 			preparedStatement.setDouble(31, createProductInput.fixedAmount);
 			preparedStatement.setString(32, createProductInput.amountUomTypeId);
 			preparedStatement.setString(33, createProductInput.weightUom);
@@ -130,7 +165,8 @@ public class CreateProduct {
 			preparedStatement.setString(48, createProductInput.ratingTypeEnum);
 			preparedStatement.setBoolean(49, createProductInput.returnable);
 			preparedStatement.setBoolean(50, createProductInput.taxable);
-			preparedStatement.setString(51, String.valueOf(createProductInput.chargeShipping));
+//			preparedStatement.setString(51, (String.valueOf(createProductInput.chargeShipping)==null) ? "-" : String.valueOf(createProductInput.chargeShipping));
+			preparedStatement.setString(51, (createProductInput.chargeShipping)==null ? "-" : createProductInput.chargeShipping);
 			preparedStatement.setString(52, createProductInput.autoCreateKeywords);
 			preparedStatement.setBoolean(53, createProductInput.includeInPromotions);
 			preparedStatement.setBoolean(54, createProductInput.isVirtual);
@@ -150,7 +186,8 @@ public class CreateProduct {
 			preparedStatement.setString(68, createProductInput.inShippingBox);
 			preparedStatement.setString(69, createProductInput.defaultShipmentBoxTypeId);
 			preparedStatement.setString(70, createProductInput.lotIdFiledIn);
-			preparedStatement.setString(71, String.valueOf(createProductInput.orderDecimalQuantity));
+//			preparedStatement.setString(71, (String.valueOf(createProductInput.orderDecimalQuantity)==null) ? "-" : String.valueOf(createProductInput.orderDecimalQuantity));
+			preparedStatement.setString(71, (createProductInput.orderDecimalQuantity)==null ? "-" : createProductInput.orderDecimalQuantity);
 			preparedStatement.setString(72, createProductInput.lastUpdatedStamp);
 			preparedStatement.setString(73, createProductInput.lastUpdatedTxStamp);
 			preparedStatement.setString(74, formatDate(createProductInput.createdStamp));
@@ -159,13 +196,14 @@ public class CreateProduct {
 			connection.commit();
 			createProductOutput.supplierId = createProductInput.productId;
 			insertProductKeyword(connection, createProductInput, createProductInput.productId);
-			insertProductDimmension(connection, createProductInput, createProductInput.productId);
+			insertProductDimmension(connectionOlap, createProductInput, createProductInput.productId);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 
 		} finally {
 			connectionFactory.close(connection);
+			connectionFactory.close(connectionOlap);
 			connectionFactory.close(preparedStatement);
 		}
 		return createProductOutput;	
@@ -188,8 +226,10 @@ public class CreateProduct {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PRODUCT_KEYWORD, Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, productId);
-			preparedStatement.setString(2, createProductInput.keyword);
-			preparedStatement.setString(3, createProductInput.keywordTypeId);
+//			preparedStatement.setString(2, createProductInput.keyword);
+			preparedStatement.setString(2, productId);
+//			preparedStatement.setString(3, createProductInput.keywordTypeId);
+			preparedStatement.setString(3, "KWT_KEYWORD");
 			preparedStatement.setString(4, createProductInput.keywordRelevancyWeight);
 			preparedStatement.setString(5, createProductInput.keywordStatusId);
 			preparedStatement.setString(6, getEntryDate());
@@ -204,11 +244,12 @@ public class CreateProduct {
 		}
 	}
 	
-	private void insertProductDimmension(Connection connection, CreateProductInput createProductInput, String productId) {
+	private void insertProductDimmension(Connection connectionOlap, CreateProductInput createProductInput, String productId) {
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PRODUCT_DIMENSION, Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement preparedStatement = connectionOlap.prepareStatement(INSERT_PRODUCT_DIMENSION, Statement.RETURN_GENERATED_KEYS);
 //			preparedStatement.setString(1, generateDimensionId(connection));
-			preparedStatement.setLong(1, generateDimensionId(connection));
+			//preparedStatement.setLong(1, generateDimensionId(connectionOlap));
+			preparedStatement.setString(1, productId);
 			preparedStatement.setString(2, productId);
 			preparedStatement.setString(3, createProductInput.productTypeId);
 			preparedStatement.setString(4, createProductInput.brandName);
@@ -218,7 +259,7 @@ public class CreateProduct {
 			preparedStatement.setString(8, getEntryDate());
 			preparedStatement.setString(9, getEntryDate());
 			preparedStatement.execute();
-			connection.commit();
+			connectionOlap.commit();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

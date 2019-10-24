@@ -114,8 +114,8 @@ font-weight: bold;
   <label for="productTypeId">Product Type</label>
   <select class="form-control" id="productTypeId" name="productTypeId">
   	<option>Please Select</option>
-    <option>HERBAL</option>
-    <option>ALOVERA</option>
+    <option>DIGITAL_GOOD</option>
+    <option>FINISHED_GOOD</option>
     
   </select>
     <label>Brand Name</label>

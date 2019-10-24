@@ -35,6 +35,34 @@ public class ConnectionFactory {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	//OLAP Data Source Connection
+	public Connection getConnectionOlap() {
+		try {
+
+			Properties properties = new Properties();
+			try {
+				properties
+						.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("config.properties"));
+				url = properties.getProperty("jdbc.olap");
+				driver = properties.getProperty("jdbc.driver");
+				username = properties.getProperty("jdbc.ofbizusername");
+				password = properties.getProperty("jdbc.ofbizpassword");
+
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+			Class.forName(driver).newInstance();
+			return DriverManager.getConnection(url, username, password);
+		} catch (Exception e) {
+			// e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+	
+	
 
 	public void close(Connection con) {
 		if (con != null) {

@@ -16,7 +16,7 @@ public class CreateProductInput  implements java.io.Serializable {
 
     private java.lang.String brandName;
 
-    private org.apache.axis.types.UnsignedShort chargeShipping;
+    private java.lang.String chargeShipping;
 
     private java.lang.String comments;
 
@@ -86,7 +86,7 @@ public class CreateProductInput  implements java.io.Serializable {
 
     private java.lang.String mediumImageUrl;
 
-    private org.apache.axis.types.UnsignedShort orderDecimalQuantity;
+    private java.lang.String orderDecimalQuantity;
 
     private java.lang.String originGeoId;
 
@@ -124,7 +124,7 @@ public class CreateProductInput  implements java.io.Serializable {
 
     private java.util.Date releaseDate;
 
-    private org.apache.axis.types.UnsignedShort requireAmount;
+    private java.lang.String requireAmount;
 
     private java.lang.String requireInventory;
 
@@ -174,7 +174,7 @@ public class CreateProductInput  implements java.io.Serializable {
            java.lang.String autoCreateKeywords,
            java.lang.String billOfMaterialLevel,
            java.lang.String brandName,
-           org.apache.axis.types.UnsignedShort chargeShipping,
+           java.lang.String chargeShipping,
            java.lang.String comments,
            java.lang.String configId,
            java.lang.String createdByUserLogin,
@@ -209,7 +209,7 @@ public class CreateProductInput  implements java.io.Serializable {
            java.lang.String lotIdFiledIn,
            java.lang.String manufacturerPartyId,
            java.lang.String mediumImageUrl,
-           org.apache.axis.types.UnsignedShort orderDecimalQuantity,
+           java.lang.String orderDecimalQuantity,
            java.lang.String originGeoId,
            java.lang.String originalImageUrl,
            java.lang.Double piecesIncluded,
@@ -228,7 +228,7 @@ public class CreateProductInput  implements java.io.Serializable {
            java.lang.Double qunatityIncluded,
            java.lang.String ratingTypeEnum,
            java.util.Date releaseDate,
-           org.apache.axis.types.UnsignedShort requireAmount,
+           java.lang.String requireAmount,
            java.lang.String requireInventory,
            java.lang.String requirementMethodEnumId,
            java.lang.String reserv2NsPPPerc,
@@ -416,7 +416,7 @@ public class CreateProductInput  implements java.io.Serializable {
      * 
      * @return chargeShipping
      */
-    public org.apache.axis.types.UnsignedShort getChargeShipping() {
+    public java.lang.String getChargeShipping() {
         return chargeShipping;
     }
 
@@ -426,7 +426,7 @@ public class CreateProductInput  implements java.io.Serializable {
      * 
      * @param chargeShipping
      */
-    public void setChargeShipping(org.apache.axis.types.UnsignedShort chargeShipping) {
+    public void setChargeShipping(java.lang.String chargeShipping) {
         this.chargeShipping = chargeShipping;
     }
 
@@ -1116,7 +1116,7 @@ public class CreateProductInput  implements java.io.Serializable {
      * 
      * @return orderDecimalQuantity
      */
-    public org.apache.axis.types.UnsignedShort getOrderDecimalQuantity() {
+    public java.lang.String getOrderDecimalQuantity() {
         return orderDecimalQuantity;
     }
 
@@ -1126,7 +1126,7 @@ public class CreateProductInput  implements java.io.Serializable {
      * 
      * @param orderDecimalQuantity
      */
-    public void setOrderDecimalQuantity(org.apache.axis.types.UnsignedShort orderDecimalQuantity) {
+    public void setOrderDecimalQuantity(java.lang.String orderDecimalQuantity) {
         this.orderDecimalQuantity = orderDecimalQuantity;
     }
 
@@ -1496,7 +1496,7 @@ public class CreateProductInput  implements java.io.Serializable {
      * 
      * @return requireAmount
      */
-    public org.apache.axis.types.UnsignedShort getRequireAmount() {
+    public java.lang.String getRequireAmount() {
         return requireAmount;
     }
 
@@ -1506,7 +1506,7 @@ public class CreateProductInput  implements java.io.Serializable {
      * 
      * @param requireAmount
      */
-    public void setRequireAmount(org.apache.axis.types.UnsignedShort requireAmount) {
+    public void setRequireAmount(java.lang.String requireAmount) {
         this.requireAmount = requireAmount;
     }
 
@@ -2448,9 +2448,9 @@ public class CreateProductInput  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("chargeShipping");
         elemField.setXmlName(new javax.xml.namespace.QName("http://createproduct.ofbiz.com/xsd", "chargeShipping"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "unsignedShort"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
-        elemField.setNillable(false);
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("comments");
@@ -2693,9 +2693,9 @@ public class CreateProductInput  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("orderDecimalQuantity");
         elemField.setXmlName(new javax.xml.namespace.QName("http://createproduct.ofbiz.com/xsd", "orderDecimalQuantity"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "unsignedShort"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
-        elemField.setNillable(false);
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("originGeoId");
@@ -2826,9 +2826,9 @@ public class CreateProductInput  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("requireAmount");
         elemField.setXmlName(new javax.xml.namespace.QName("http://createproduct.ofbiz.com/xsd", "requireAmount"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "unsignedShort"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
-        elemField.setNillable(false);
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("requireInventory");

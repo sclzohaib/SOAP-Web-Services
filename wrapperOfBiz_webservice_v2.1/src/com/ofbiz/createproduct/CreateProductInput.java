@@ -32,7 +32,7 @@ public class CreateProductInput {
 	public String quantityUomId;
 	public double qunatityIncluded;
 	public double piecesIncluded;
-	public char requireAmount;
+	public String requireAmount;
 	public double fixedAmount;
 	public String amountUomTypeId;
 	public String weightUom;
@@ -53,7 +53,7 @@ public class CreateProductInput {
 	public String ratingTypeEnum;
 	public boolean returnable;
 	public boolean taxable;
-	public char chargeShipping;
+	public String chargeShipping;
 	public String autoCreateKeywords;
 	public boolean includeInPromotions;
 	public boolean isVirtual;
@@ -73,7 +73,7 @@ public class CreateProductInput {
 	public String inShippingBox;
 	public String defaultShipmentBoxTypeId;
 	public String lotIdFiledIn;
-	public char orderDecimalQuantity;
+	public String orderDecimalQuantity;
 	public String lastUpdatedStamp;
 	public String lastUpdatedTxStamp;
 	public Date createdStamp;
@@ -257,10 +257,10 @@ public class CreateProductInput {
 	public void setPiecesIncluded(double piecesIncluded) {
 		this.piecesIncluded = piecesIncluded;
 	}
-	public char getRequireAmount() {
+	public String getRequireAmount() {
 		return requireAmount;
 	}
-	public void setRequireAmount(char requireAmount) {
+	public void setRequireAmount(String requireAmount) {
 		this.requireAmount = requireAmount;
 	}
 	public double getFixedAmount() {
@@ -383,10 +383,10 @@ public class CreateProductInput {
 	public void setTaxable(boolean taxable) {
 		this.taxable = taxable;
 	}
-	public char getChargeShipping() {
+	public String getChargeShipping() {
 		return chargeShipping;
 	}
-	public void setChargeShipping(char chargeShipping) {
+	public void setChargeShipping(String chargeShipping) {
 		this.chargeShipping = chargeShipping;
 	}
 	public String getAutoCreateKeywords() {
@@ -503,10 +503,10 @@ public class CreateProductInput {
 	public void setLotIdFiledIn(String lotIdFiledIn) {
 		this.lotIdFiledIn = lotIdFiledIn;
 	}
-	public char getOrderDecimalQuantity() {
+	public String getOrderDecimalQuantity() {
 		return orderDecimalQuantity;
 	}
-	public void setOrderDecimalQuantity(char orderDecimalQuantity) {
+	public void setOrderDecimalQuantity(String orderDecimalQuantity) {
 		this.orderDecimalQuantity = orderDecimalQuantity;
 	}
 	public String getLastUpdatedStamp() {
