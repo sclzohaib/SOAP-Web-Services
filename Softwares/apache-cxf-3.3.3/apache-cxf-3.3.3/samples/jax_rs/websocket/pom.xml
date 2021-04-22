@@ -128,7 +128,7 @@
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http</artifactId>
-            <version>3.3.3</version>
+            <version>3.4.3</version>
         </dependency>
         <!-- This dependency is needed if you're using the Jetty container -->
         <dependency>
@@ -175,12 +175,12 @@
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http-jetty</artifactId>
-            <version>3.3.3</version>
+            <version>3.4.3</version>
         </dependency>
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-            <version>3.3.3</version>
+            <version>3.4.3</version>
         </dependency>
         <dependency>
             <groupId>jakarta.ws.rs</groupId>
